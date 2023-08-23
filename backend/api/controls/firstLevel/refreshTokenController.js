@@ -36,9 +36,12 @@ const handleRefreshToken = (req,res) => {
           res.sendStatus(403) //Forbidden
 	)
       }
-      console.log('Decoded Username:',decoded.usersname)
-      const accessToken = jwt.sign(
-        {"username":decoded.username},
+      console.log('Decoded Username:',decoded.username)
+      const accessToken = jwt.sign({
+        "Userinfo":{
+          "username":decoded.username
+	  },
+        },  	
 	process.env.ACCESS_TOKEN_SECRET,
 	{expiresIn:'30s'}
       )

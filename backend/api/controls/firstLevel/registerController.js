@@ -31,7 +31,10 @@ const handleNewUser = async (req,res) => {
     //Store The User
     const newUser = {
       "username":user,
-      "password":hashedPassword
+      "password":hashedPassword,
+      "roles":{
+        "User":2001
+      }
     }
     //Create Another Mutatable Array
     usersDB.setUsers([...usersDB.users,newUser])

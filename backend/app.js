@@ -49,14 +49,8 @@ app.use('/logout',require('./api/routes/logout'))
 
 //Authenticated Routes
 app.use(verifyJWT)
-app.use('/dashboard',(req,res) => {
-  const cookies = req.cookies
-  if(!cookies?.jwt){
-    res.sendStatus(401)
-  }
-  console.log('Refresh Token:',cookies.jwt)
-  res.sendStatus(200)
-})
+app.use('/dashboard',require('./api/routes/dashboard'))
+app.use('/employees',require('./api/routes/employees'))
 
 //Routes Handler
 app.get('^/$|/index(.html)?',(req,res) => {

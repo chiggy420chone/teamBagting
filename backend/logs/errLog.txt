@@ -1,3 +1,7 @@
 Sun Aug 20 2023 17:00:06 GMT+0800 (Philippine Standard Time)	d6628d2e-704d-41d7-9577-456759a22744	TypeError: res.senStatus is not a function
 Sun Aug 20 2023 17:02:07 GMT+0800 (Philippine Standard Time)	7e12e4c8-4ad2-4cc4-9f43-f242e619ff70	TypeError: res.senStatus is not a function
 Sun Aug 20 2023 22:00:14 GMT+0800 (Philippine Standard Time)	d6b4bc49-093b-4711-b5da-5dacb545bc54	TypeError: Cannot read properties of undefined (reading 'jwt')
+Wed Aug 23 2023 10:30:00 GMT+0800 (Philippine Standard Time)	23662d8a-d3b0-4640-8780-aec5b9db395a	TypeError: rolesArray.includes(...).find is not a function
+Wed Aug 23 2023 10:44:10 GMT+0800 (Philippine Standard Time)	005e7be9-0346-4711-b0c4-6c250926251c	Error: ENOENT: no such file or directory, stat 'D:\Desktop Files\teamBagting\backend\views\404.html'
+Wed Aug 23 2023 10:54:49 GMT+0800 (Philippine Standard Time)	b9e546a0-44c9-4d48-ac97-e227a235235c	Error: ENOENT: no such file or directory, stat 'D:\Desktop Files\teamBagting\backend\views\404.html'
+Wed Aug 23 2023 11:03:57 GMT+0800 (Philippine Standard Time)	11affd1f-5860-4a6b-80c6-e598aa171a51	Error: ENOENT: no such file or directory, stat 'D:\Desktop Files\teamBagting\backend\views\404.html'

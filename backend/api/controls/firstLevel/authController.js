@@ -31,9 +31,13 @@ const handleLogin = async (req,res) => {
   //Evaluate Password
   const match = await bcrypt.compare(password,foundUser.password)
   if(match){
+    const roles = Object.values(foundUser.roles)
     //Create JWT's:
     const accessToken = jwt.sign({
-      "username":foundUser.username,
+      "UserInfo":{
+        "username":foundUser.username,
+	"roles":roles
+        }
       },
       process.env.ACCESS_TOKEN_SECRET,
       {expiresIn:'120s'}
@@ -67,6 +71,7 @@ const handleLogin = async (req,res) => {
     })	   
     res.status(200).json({
       "message":`User ${user} is logged in.`,
+      roles,
       accessToken,
       refreshToken,
     })
