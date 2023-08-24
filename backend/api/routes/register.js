@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {handleNewUser} = require('../controls/firstLevel/registerController')
+const {handleNewUser} = require('../controls/secondLevel/registerController')
 
 router.route('/')
   .post(handleNewUser)

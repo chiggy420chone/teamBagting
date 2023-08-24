@@ -5,3 +5,4 @@ Wed Aug 23 2023 10:30:00 GMT+0800 (Philippine Standard Time)	23662d8a-d3b0-4640-
 Wed Aug 23 2023 10:44:10 GMT+0800 (Philippine Standard Time)	005e7be9-0346-4711-b0c4-6c250926251c	Error: ENOENT: no such file or directory, stat 'D:\Desktop Files\teamBagting\backend\views\404.html'
 Wed Aug 23 2023 10:54:49 GMT+0800 (Philippine Standard Time)	b9e546a0-44c9-4d48-ac97-e227a235235c	Error: ENOENT: no such file or directory, stat 'D:\Desktop Files\teamBagting\backend\views\404.html'
 Wed Aug 23 2023 11:03:57 GMT+0800 (Philippine Standard Time)	11affd1f-5860-4a6b-80c6-e598aa171a51	Error: ENOENT: no such file or directory, stat 'D:\Desktop Files\teamBagting\backend\views\404.html'
+Thu Aug 24 2023 09:49:51 GMT+0800 (Philippine Standard Time)	272abee3-a115-4d66-9462-aba8e4c0e259	Error: ENOENT: no such file or directory, stat 'D:\Desktop Files\teamBagting\backend\views\404.html'

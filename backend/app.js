@@ -46,7 +46,7 @@ app.use('/register',require('./api/routes/register'))
 app.use('/auth',require('./api/routes/auth'))
 app.use('/refresh',require('./api/routes/refresh'))
 app.use('/logout',require('./api/routes/logout'))
-
+//app.use('/dashboard',require('./api/routes/dashboard'))
 //Authenticated Routes
 app.use(verifyJWT)
 app.use('/dashboard',require('./api/routes/dashboard'))
