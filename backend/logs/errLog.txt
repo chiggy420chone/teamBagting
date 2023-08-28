@@ -6,3 +6,7 @@ Wed Aug 23 2023 10:44:10 GMT+0800 (Philippine Standard Time)	005e7be9-0346-4711-
 Wed Aug 23 2023 10:54:49 GMT+0800 (Philippine Standard Time)	b9e546a0-44c9-4d48-ac97-e227a235235c	Error: ENOENT: no such file or directory, stat 'D:\Desktop Files\teamBagting\backend\views\404.html'
 Wed Aug 23 2023 11:03:57 GMT+0800 (Philippine Standard Time)	11affd1f-5860-4a6b-80c6-e598aa171a51	Error: ENOENT: no such file or directory, stat 'D:\Desktop Files\teamBagting\backend\views\404.html'
 Thu Aug 24 2023 09:49:51 GMT+0800 (Philippine Standard Time)	272abee3-a115-4d66-9462-aba8e4c0e259	Error: ENOENT: no such file or directory, stat 'D:\Desktop Files\teamBagting\backend\views\404.html'
+Sat Aug 26 2023 11:28:59 GMT+0800 (Philippine Standard Time)	b30c3673-691a-486d-a2cf-b5646879a1e4	Error: ENOENT: no such file or directory, stat 'D:\Desktop Files\teamBagting\backend\views\404.html'
+Sat Aug 26 2023 11:32:59 GMT+0800 (Philippine Standard Time)	a88a1631-dc0f-4499-82a7-85743190ebdb	Error: ENOENT: no such file or directory, stat 'D:\Desktop Files\teamBagting\backend\views\404.html'
+Sat Aug 26 2023 22:12:08 GMT+0800 (Philippine Standard Time)	d3b20ab2-0c2a-4690-a5e5-1b6d6560f120	TypeError: Cannot read properties of undefined (reading 'username')
+Sun Aug 27 2023 16:16:09 GMT+0800 (Philippine Standard Time)	28d87561-bbcd-49fc-8079-554270684301	TypeError: Cannot read properties of undefined (reading 'username')

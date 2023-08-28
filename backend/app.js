@@ -49,9 +49,9 @@ app.use('/logout',require('./api/routes/logout'))
 //app.use('/dashboard',require('./api/routes/dashboard'))
 //Authenticated Routes
 app.use(verifyJWT)
-app.use('/dashboard',require('./api/routes/dashboard'))
+//app.use('/dashboard',require('./api/routes/dashboard'))
 app.use('/employees',require('./api/routes/employees'))
-
+app.use('/users',require('./api/routes/users'))
 //Routes Handler
 app.get('^/$|/index(.html)?',(req,res) => {
   res.status(200)

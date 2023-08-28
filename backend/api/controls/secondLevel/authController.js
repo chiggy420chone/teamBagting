@@ -24,7 +24,7 @@ const handleLogin = async (req,res) => {
   //Evaluate Password
   const match = await bcrypt.compare(password,foundUser.password)
   if(match){
-    const roles = Object.values(foundUser.roles)
+    const roles = Object.values(foundUser.roles).filter(Boolean)
     //Create JWT's:
     const accessToken = jwt.sign({
       "UserInfo":{

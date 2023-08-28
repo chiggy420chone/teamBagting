@@ -28,20 +28,6 @@ const dashboard = async (req,res) => {
 	  res.sendStatus(403)
 	)
       }
-
-      const accessToken = jwt.sign({
-        "UserInfo":{
-          "username":decoded.username
-	}
-      },
-      process.env.ACCESS_TOKEN_SECRET,
-      {expiresIn:'30s'}
-      )
-
-      res.json({
-	"message":"Accessing A Protected Route",
-        accessToken
-      })
     }
   )
 }
