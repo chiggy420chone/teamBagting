@@ -3,9 +3,9 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 
 const handleLogin = async (req,res) => {
-  const {user,password} = req.body
+  const {username,password} = req.body
   
-  if(!user || !password){
+  if(!username || !password){
     return(
       res.status(400).json({
         "message":"Username and Password are required."
@@ -13,14 +13,14 @@ const handleLogin = async (req,res) => {
     )
   }
 
-  const foundUser = await User.findOne({username:user}).exec()
+  const foundUser = await User.findOne({username:username}).exec()
 
   if(!foundUser){
     return(
       res.sendStatus(401) //Unauthorized
     )
   }
-  console.log('Found User:',foundUser)
+  console.log('Found Username:',foundUser.username)
   //Evaluate Password
   const match = await bcrypt.compare(password,foundUser.password)
   if(match){
@@ -33,19 +33,19 @@ const handleLogin = async (req,res) => {
         }
       },
       process.env.ACCESS_TOKEN_SECRET,
-      {expiresIn:'120s'}
+      {expiresIn:'30s'}
     )
 
     const refreshToken = jwt.sign({
       "username":foundUser.username,
       },process.env.REFRESH_TOKEN_SECRET,
-      {expiresIn:'180s'}
+      {expiresIn:'120s'}
     )
     //Saving refreshToken with current user
     foundUser.refreshToken = refreshToken
     const result = await foundUser.save()
 
-    console.log(result)	  
+    console.log('Result: ',result)	  
 
     res.cookie('jwt',refreshToken,{
       httpOnly:true,
@@ -53,8 +53,9 @@ const handleLogin = async (req,res) => {
       secure:true,
       maxAge: 1000 * 60 * 3 * 1
     })	   
+    //
     res.status(200).json({
-      "message":`User ${user} is logged in.`,
+      "message":`User ${username} is logged in.`,
       roles,
       accessToken,
       refreshToken,

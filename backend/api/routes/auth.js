@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {handleLogin} = require('../controls/firstLevel/authController')
+const {handleLogin} = require('../controls/secondLevel/authController')
 
 router.route('/')
   .post(handleLogin)

@@ -18,7 +18,7 @@ const handleRefreshToken = async (req,res) => {
       res.sendStatus(403) //Forbidden
     )
   }
-  console.log('Found User:',foundUser)
+  console.log('Found User - refreshToken:',foundUser)
 
   //Evaluate JWT
   jwt.verify(
@@ -31,16 +31,22 @@ const handleRefreshToken = async (req,res) => {
 	)
       }
       console.log('Decoded Username:',decoded.username)
+
+      const roles = Object.values(foundUser.roles)
+
       const accessToken = jwt.sign({
-        "Userinfo":{
-          "username":decoded.username
+        "UserInfo":{
+          "username":decoded.username,
+          "roles":roles
 	  },
         },  	
 	process.env.ACCESS_TOKEN_SECRET,
 	{expiresIn:'30s'}
       )
       res.json({
-        accessToken
+	usename:foundUser.username,
+        accessToken,
+	roles
       })
     }
   )

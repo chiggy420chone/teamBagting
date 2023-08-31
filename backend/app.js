@@ -23,7 +23,7 @@ app.use(cors(corsOptions))
      In other words, form data:
      'content-type:application/x-www-form-urlencoded'
 --*/
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({extended:true}))
 
 ////built-in middleware for json
 app.use(express.json())
@@ -46,12 +46,13 @@ app.use('/register',require('./api/routes/register'))
 app.use('/auth',require('./api/routes/auth'))
 app.use('/refresh',require('./api/routes/refresh'))
 app.use('/logout',require('./api/routes/logout'))
-//app.use('/dashboard',require('./api/routes/dashboard'))
+
 //Authenticated Routes
 app.use(verifyJWT)
 //app.use('/dashboard',require('./api/routes/dashboard'))
 app.use('/employees',require('./api/routes/employees'))
 app.use('/users',require('./api/routes/users'))
+
 //Routes Handler
 app.get('^/$|/index(.html)?',(req,res) => {
   res.status(200)

@@ -15,7 +15,7 @@ const Login = () => {
   const userRef = useRef()
   const errRef = useRef()
 
-  const [user,setUser] = useState('')
+  const [username,setUsername] = useState('')
   const [password,setPassword] = useState('')
   const [errMsg,setErrMsg] = useState('')
 
@@ -25,13 +25,13 @@ const Login = () => {
 
   useEffect(() => {
     setErrMsg('')  
-  },[user,password])
+  },[username,password])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try{
       const response = await axios.post(LOGIN_URL,
-        JSON.stringify({user,password}),{
+        JSON.stringify({username,password}),{
           headers:{
              'Content-Type':'application/json'
 	  },
@@ -41,8 +41,8 @@ const Login = () => {
       console.log(JSON.stringify(response?.data))
       const accessToken = response?.data?.accessToken
       const roles = response?.data?.roles
-      setAuth({user,password,accessToken,roles})
-      setUser('')
+      setAuth({username,password,accessToken,roles})
+      setUsername('')
       setPassword('')
       navigate(from,{replace:true})
     }catch(err){
@@ -81,10 +81,10 @@ const Login = () => {
 	      autoComplete="off"
 	      onChange={
                 (e) => {
-                  setUser(e.target.value)
+                  setUsername(e.target.value)
 	        }
 	      }
-	      value={user}
+	      value={username}
 	      required
 	    />
 

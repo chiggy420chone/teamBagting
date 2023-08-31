@@ -10,7 +10,7 @@ const useRefreshToken = () => {
     })
     setAuth(prev => {
       console.log('Previous State:',JSON.stringify(prev))
-      console.log(response.data.accessToken)
+      console.log('Current State:',response.data.accessToken)
       return({
         ...prev,
         accessToken:response.data.accessToken 
