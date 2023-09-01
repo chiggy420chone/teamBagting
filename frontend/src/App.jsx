@@ -10,6 +10,7 @@ import Admin from './components/Admin'
 import Lounge from './components/Lounge'
 import Missing from './components/Missing'
 import RequireAuth from './components/RequireAuth'
+import PersistLogin from './components/PersistLogin'
 import {Routes,Route} from 'react-router-dom'
 import './styles/App.css'
 
@@ -31,6 +32,7 @@ const App = () => {
 	  <Route path="linkpage" element={<LinkPage />} />
 	  <Route path="unauthorized" element={<Unauthorized />} />
           {/*--Protected Routes--*/}
+	  <Route element={<PersistLogin />} >
 	  <Route element={<RequireAuth allowedRoles={[ROLES.User]} />} >
 	    <Route path="/" element={<Home />} />
 	  </Route>
@@ -43,6 +45,7 @@ const App = () => {
 	  <Route element={<RequireAuth  
 	    allowedRoles={[ROLES.Editor,ROLES.Admin]} />} >
 	    <Route path="lounge" element={<Lounge />} />
+	  </Route>
 	  </Route>
           {/*--Catch All --*/}
           <Route path="*" element={<Missing />} />
