@@ -3,6 +3,9 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 
 const handleLogin = async (req,res) => {
+  const cookies = req.cookies
+  console.log(`cookie available at login:${JSON.stringify(cookies)}`)
+  
   const {username,password} = req.body
   
   if(!username || !password){
@@ -36,29 +39,54 @@ const handleLogin = async (req,res) => {
       {expiresIn:'30s'}
     )
 
-    const refreshToken = jwt.sign({
+    const newRefreshToken = jwt.sign({
       "username":foundUser.username,
       },process.env.REFRESH_TOKEN_SECRET,
       {expiresIn:'120s'}
     )
+
+    let newRefreshTokenArray = 
+      !cookies?.jwt
+        ? foundUser.refreshToken
+	: foundUser.refreshToken.filter(rt => rt !== cookies.jwt )
+
+    if(cookies?.jwt){
+      //Reuse Detection Is Needed To Cler RT's When User Logs
+      const refreshToken = cookies.jwt
+      const foundToken = await User.findOne({refreshToken}).exec()
+
+      //Detected Refresh Token Reise
+      if(!foundToken){
+        console.log('attempted refresh token reuse at login!')
+	//clear out all previous refresh tokens
+	newRefreshTokenArray = []
+      }
+
+      res.clearCookie('jwt',{
+         httpOnly:true,
+	secure:true,
+	sameSite:'None'
+      })
+    }
     //Saving refreshToken with current user
-    foundUser.refreshToken = refreshToken
+    foundUser.refreshToken = [...newRefreshTokenArray,newRefreshToken]
     const result = await foundUser.save()
 
-    console.log('Result: ',result)	  
+    console.log('Result: ',result) 
+    console.log('Roles:',roles)
 
-    res.cookie('jwt',refreshToken,{
+    res.cookie('jwt',newRefreshToken,{
       httpOnly:true,
       sameSite:'None',
       secure:true,
-      maxAge: 1000 * 60 * 3 * 1
+      maxAge: 1000 * 60 * 60 * 24
     })	   
     //
     res.status(200).json({
       "message":`User ${username} is logged in.`,
       roles,
       accessToken,
-      refreshToken,
+      username:foundUser.username
     })
   }else{
     res.sendStatus(401)

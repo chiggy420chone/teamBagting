@@ -4,6 +4,11 @@ import App from './App.jsx'
 import './styles/index.css'
 import {AuthProvider} from './context/AuthProvider'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import {disableReactDevTools} from '@fvilers/disable-react-devtools'
+
+if(process.env.NODE_ENV === "PRODUCTION"){
+  disableReactDevTools()
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
