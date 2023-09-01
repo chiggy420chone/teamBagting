@@ -45,7 +45,7 @@ const Login = () => {
       const accessToken = response?.data?.accessToken
       const roles = response?.data?.roles
       setAuth({username,password,accessToken,roles})
-      resetUsername('')
+      resetUsername()
       setPassword('')
       navigate(from,{replace:true})
     }catch(err){
